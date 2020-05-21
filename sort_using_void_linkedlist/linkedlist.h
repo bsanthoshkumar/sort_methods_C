@@ -15,6 +15,7 @@ typedef void *Element;
 typedef struct node
 {
   Element element;
+  struct node *prev;
   struct node *next;
 } Node;
 

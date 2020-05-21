@@ -5,5 +5,6 @@
 typedef Status (*Matcher)(Element, Element);
 void selection_sort(List_ptr, Matcher);
 void bubble_sort(List_ptr, Matcher);
+void insertion_sort(List_ptr, Matcher);
 
 #endif

@@ -13,6 +13,7 @@ Node_ptr create_newnode(Element element)
 {
   Node_ptr newnode = malloc(sizeof(Node));
   newnode->element = element;
+  newnode->prev = NULL;
   newnode->next = NULL;
   return newnode;
 }
@@ -30,6 +31,7 @@ Status add_to_list(List_ptr list, Element element)
   }
   else
   {
+    newnode->prev = list->last;
     list->last->next = newnode;
   }
   list->last = newnode;

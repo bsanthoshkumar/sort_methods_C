@@ -49,3 +49,20 @@ void bubble_sort(List_ptr list, Matcher matcher)
     node1 = node1->next;
   }
 }
+
+void insertion_sort(List_ptr list, Matcher matcher)
+{
+  Node_ptr node1 = list->first;
+  while (node1 != NULL)
+  {
+    Node_ptr node2 = node1;
+    while (node2->prev != NULL && matcher(node2->element, node2->prev->element))
+    {
+      Element temp = node2->element;
+      node2->element = node2->prev->element;
+      node2->prev->element = temp;
+      node2 = node2->prev;
+    }
+    node1 = node1->next;
+  }
+}

@@ -4,5 +4,6 @@
 #include "linkedlist.h"
 typedef Status (*Matcher)(Element, Element);
 void selection_sort(List_ptr, Matcher);
+void bubble_sort(List_ptr, Matcher);
 
 #endif

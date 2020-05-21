@@ -2,25 +2,50 @@
 
 void selection_sort(List_ptr list, Matcher matcher)
 {
-  Prev_Current_Pair_ptr pair = malloc(sizeof(Prev_Current_Pair));
-  pair->prev = list->first;
-  while (pair->prev != NULL)
+  Node_ptr node1 = list->first;
+  while (node1 != NULL)
   {
-    Node_ptr min_element = pair->prev;
-    pair->current = pair->prev->next;
-    while (pair->current != NULL)
+    Node_ptr min_element = node1;
+    Node_ptr node2 = node1->next;
+    while (node2 != NULL)
     {
-      if (matcher(pair->current->element, min_element->element))
+      if (matcher(node2->element, min_element->element))
       {
-        min_element = pair->current;
+        min_element = node2;
       }
-      pair->current = pair->current->next;
+      node2 = node2->next;
     }
 
-    Element temp = pair->prev->element;
-    pair->prev->element = min_element->element;
+    Element temp = node1->element;
+    node1->element = min_element->element;
     min_element->element = temp;
 
-    pair->prev = pair->prev->next;
+    node1 = node1->next;
+  }
+}
+
+void bubble_sort(List_ptr list, Matcher matcher)
+{
+  Node_ptr node1 = list->first;
+  for (size_t i = 0; i < list->length && node1 != NULL; i++)
+  {
+    Status swap = Failure;
+    Node_ptr node2 = list->first;
+    for (size_t j = 0; j < list->length - i - 1; j++)
+    {
+      if (matcher(node2->next->element, node2->element))
+      {
+        swap = Success;
+        Element temp = node2->element;
+        node2->element = node2->next->element;
+        node2->next->element = temp;
+      }
+      node2 = node2->next;
+    }
+    if (!swap)
+    {
+      break;
+    }
+    node1 = node1->next;
   }
 }

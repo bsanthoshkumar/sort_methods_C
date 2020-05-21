@@ -13,7 +13,7 @@ void sort(int *array, int length)
 {
   for (size_t i = 1; i < length; i++)
   {
-    for (size_t j = i - 1; j >= 0 && array[j] > array[j + 1]; j--)
+    for (int j = i - 1; j >= 0 && array[j] > array[j + 1]; j--)
     {
       int temp = array[j];
       array[j] = array[j + 1];

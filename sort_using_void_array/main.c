@@ -98,9 +98,44 @@ void perform_selection_sort_on_strings()
   selection_sort(list, &is_string_less_than);
   display_array(list, display_string);
 }
+
+void perform_bubble_sort_on_numbers()
+{
+  Array_ptr list = create_array(6);
+  list->values[0] = create_number(4);
+  list->values[1] = create_number(13);
+  list->values[2] = create_number(1);
+  list->values[3] = create_number(10);
+  list->values[4] = create_number(6);
+  list->values[5] = create_number(7);
+
+  printf("bubble sort on numbers: \n");
+  display_array(list, display_number);
+  bubble_sort(list, &is_number_less_than);
+  display_array(list, display_number);
+}
+
+void perform_insertion_sort_on_numbers()
+{
+  Array_ptr list = create_array(6);
+  list->values[0] = create_number(8);
+  list->values[1] = create_number(5);
+  list->values[2] = create_number(3);
+  list->values[3] = create_number(1);
+  list->values[4] = create_number(12);
+  list->values[5] = create_number(7);
+
+  printf("insertion sort on numbers: \n");
+  display_array(list, display_number);
+  insertion_sort(list, &is_number_less_than);
+  display_array(list, display_number);
+}
+
 int main(void)
 {
   perform_selection_sort_on_numbers();
   perform_selection_sort_on_characters();
   perform_selection_sort_on_strings();
+  perform_bubble_sort_on_numbers();
+  perform_insertion_sort_on_numbers();
 }

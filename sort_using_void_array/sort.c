@@ -34,3 +34,38 @@ void selection_sort(Array_ptr array, Matcher matcher)
     array->values[min_index] = temp;
   }
 }
+
+void bubble_sort(Array_ptr array, Matcher matcher)
+{
+  for (size_t i = 0; i < array->length; i++)
+  {
+    Boolean swap = False;
+    for (size_t j = 0; j < array->length - i - 1; j++)
+    {
+      if (matcher(array->values[j + 1], array->values[j]))
+      {
+        swap = True;
+        Void_Ptr temp = array->values[j];
+        array->values[j] = array->values[j + 1];
+        array->values[j + 1] = temp;
+      }
+    }
+    if (!swap)
+    {
+      break;
+    }
+  }
+}
+
+void insertion_sort(Array_ptr array, Matcher matcher)
+{
+  for (size_t i = 1; i < array->length; i++)
+  {
+    for (int j = i - 1; j >= 0 && matcher(array->values[j + 1], array->values[j]); j--)
+    {
+      Void_Ptr temp = array->values[j];
+      array->values[j] = array->values[j + 1];
+      array->values[j + 1] = temp;
+    }
+  }
+}

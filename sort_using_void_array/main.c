@@ -131,6 +131,22 @@ void perform_insertion_sort_on_numbers()
   display_array(list, display_number);
 }
 
+void perform_quick_sort_on_numbers()
+{
+  Array_ptr list = create_array(6);
+  list->values[0] = create_number(8);
+  list->values[1] = create_number(5);
+  list->values[2] = create_number(3);
+  list->values[3] = create_number(1);
+  list->values[4] = create_number(12);
+  list->values[5] = create_number(7);
+
+  printf("quick sort on numbers: \n");
+  display_array(list, display_number);
+  quick_sort(list, 0, 5, &is_number_less_than);
+  display_array(list, display_number);
+}
+
 int main(void)
 {
   perform_selection_sort_on_numbers();
@@ -138,4 +154,5 @@ int main(void)
   perform_selection_sort_on_strings();
   perform_bubble_sort_on_numbers();
   perform_insertion_sort_on_numbers();
+  perform_quick_sort_on_numbers();
 }

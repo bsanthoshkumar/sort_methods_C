@@ -69,3 +69,26 @@ void insertion_sort(Array_ptr array, Matcher matcher)
     }
   }
 }
+
+void quick_sort(Array_ptr array, int start_index, int pivot_index, Matcher matcher)
+{
+  if (start_index < pivot_index)
+  {
+    int i = start_index;
+    for (int j = start_index; j < pivot_index; j++)
+    {
+      if (matcher(array->values[j], array->values[pivot_index]))
+      {
+        Void_Ptr temp = array->values[i];
+        array->values[i] = array->values[j];
+        array->values[j] = temp;
+        i++;
+      }
+    }
+    Void_Ptr temp = array->values[i];
+    array->values[i] = array->values[pivot_index];
+    array->values[pivot_index] = temp;
+    quick_sort(array, start_index, i - 1, matcher);
+    quick_sort(array, i + 1, pivot_index, matcher);
+  }
+}

@@ -28,5 +28,6 @@ void display_array(Array_ptr, Displayer);
 void selection_sort(Array_ptr, Matcher);
 void bubble_sort(Array_ptr, Matcher);
 void insertion_sort(Array_ptr, Matcher);
+void quick_sort(Array_ptr array, int start_index, int pivot_index, Matcher matcher);
 
 #endif
